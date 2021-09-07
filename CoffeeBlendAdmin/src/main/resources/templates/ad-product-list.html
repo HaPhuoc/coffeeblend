@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Danh sách sản phẩm</title>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
+<!-- https://fonts.google.com/specimen/Roboto -->
+<link rel="stylesheet" href="/css/fontawesome.min.css" />
+<!-- https://fontawesome.com/ -->
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<!-- https://getbootstrap.com/ -->
+<link rel="stylesheet" href="/css/admin-style.css">
+<link rel="stylesheet" href="/css/table-scroll.css">
+<!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+	<style>
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+</style>
+</head>
+
+<body id="reportsPage">
+
+	<!--Header-->
+	<thblock th:include="ad-header"> </thblock>
+	<!--Content-->
+	<div class="container mt-5">
+		<!--    <div class="row tm-content-row">-->
+		<!--        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">-->
+		<div class="tm-bg-primary-dark tm-block tm-block-products">
+			<h2 class="tm-block-title">Danh sách sản phẩm</h2>
+			<div class="search-container">
+				<form th:action="@{/page/1}">
+					<input type="hidden" name="sortName" th:value="${sortName}"/>
+					<input type="hidden" name="direction" th:value="${direction}"/>
+					<input type="text" size="50" id="keyword" name="keyword" th:value="${keyword}" placeholder="Tìm kiếm......"/>
+					<button type="submit"><i class = "fa fa-search"></i></button>	
+					<input type="button" value="Clear" id="btnClear" onclick="clearSearch()"/>
+				</form>
+			</div>
+			<br>
+			<div class="tm-product-table-container">
+				<table class="table table-hover tm-table-small tm-product-table"
+					style="border: 1px solid #3a5061">
+					<thead>
+						<tr>
+							<!-- <th scope="col">&nbsp;</th> -->
+							<th scope="col">TÊN SẢN PHẨM</th>
+							<th scope="col">HÌNH ẢNH</th>
+							<th scope="col">LOẠI SẢN PHẨM</th>
+							<th scope="col">GIÁ</th>
+							<th scope="col">TRẠNG THÁI</th>
+							<th scope="col" sec:authorize="hasAuthority('ADMIN')">XOÁ BỎ</th>
+							<th scope="col">THAY ĐỔI</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="product : ${listProduct}">
+							<!-- <th scope="row"><input type="checkbox" /></th> -->
+							<td class="tm-product-name" th:text="${product.product_name}">Americano</td>
+							<td><img style="width: 100px; height: auto"
+								th:src="${product.fullPath}" alt="product image">
+								<img style="width: 100px; height: auto"
+								th:src="${product.url}" alt="product image"></td>
+							<td th:text="${product.type}">CÀ PHÊ</td>
+							<td th:text="${product.price}">39,000 Đ</td>
+							<td th:text="${product.status}">bình thường</td>
+							<div sec:authorize="hasAuthority('ADMIN')">
+							<td><a th:href="@{/delete/{id}(id=${product.id})}"
+								class="tm-product-delete-link"> <i
+									class="far fa-trash-alt tm-product-delete-icon"></i>
+							</a></td>
+							</div>
+							
+							<td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')"><a th:href="@{/edit/{id}(id=${product.id})}"
+								class="tm-product-edit-link"> <i
+									class="fas fa-edit tm-product-delete-icon"></i>
+							</a></td>
+						</tr>
+
+
+					</tbody>
+				</table>
+				<br>
+				<div th:if="${totalPage > 1}">
+				<b style="color: white;">Tổng số sản phẩm: [[${totalItem}]] </b> <br><b style="color: white;">Tổng page: [[${totalPage}]]</b> <br>
+				<a th:if="${currentPage > 1}" th:href="@{'/page/1' + '?sortName=' + ${sortName} + '&direction=' + ${direction} + ${keyword != null ? '&keyword=' + keyword: ''}}"><b style="color: white;">Trang Đầu</b></a>&nbsp;&nbsp;
+				<span th:unless="${currentPage > 1}">Trang Đầu</span>
+				<a th:if="${currentPage > 1}" th:href="@{'/page/' + ${currentPage - 1}+ '?sortName=' + ${sortName} + '&direction=' + ${direction} + ${keyword != null ? '&keyword=' + keyword: ''}}"><b style="color: white;">Trang Trước</b></a>&nbsp;&nbsp;
+				<span th:unless="${currentPage > 1}"></span> 
+				
+				<span th:each="i: ${#numbers.sequence(1, totalPage)}">
+						<a th:if="${currentPage != i}"
+						th:href="@{'/page/' + ${i} + '?sortName=' + ${sortName} + '&direction=' + ${direction} + ${keyword != null ? '&keyword=' + keyword: ''}}"><b style="color: white;">[[${i}]]</b></a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp;&nbsp;
+				</span>
+					
+					<a th:if="${currentPage < totalPage}"
+						th:href="@{'/page/' + ${currentPage + 1} + '?sortName=' + ${sortName} + '&direction=' + ${direction} + ${keyword != null ? '&keyword=' + keyword: ''}}"><b style="color: white;">Trang
+						kế</b></a> <span th:unless="${currentPage < totalPage}">Trang kế</span>
+					&nbsp;&nbsp; <a th:if="${currentPage < totalPage}"
+						th:href="@{'/page/' + ${totalPage} + '?sortName=' + ${sortName} + '&direction=' + ${direction} + ${keyword != null ? '&keyword=' + keyword: ''}}"><b style="color: white;">Trang
+						cuối</b></a><span th:unless="${currentPage < totalPage}">Trang
+						cuối</span>
+				</div>
+			</div>
+			<!-- table container -->
+			<a th:href="@{/new}"
+				class="btn btn-primary btn-block text-uppercase mb-3">Thêm sản
+				phẩm</a>
+			<!-- <button class="btn btn-primary btn-block text-uppercase">
+				Xoá mục đã chọn</button> -->
+		</div>
+		<br>
+		<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	</div>
+	<!--Footer-->
+	<footer class="tm-footer row tm-mt-small">
+		<div class="col-12 font-weight-light">
+			<p class="text-center text-white mb-0 px-4 small">
+				<!--                Copyright &copy; <b>2020</b> All rights reserved.-->
+				Copyright &copy;
+				<script>
+					document.write(new Date().getFullYear());
+				</script>
+				Coffee Blend. All rights reserved.
+				<!--                Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>-->
+			</p>
+		</div>
+	</footer>
+
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<!-- https://jquery.com/download/ -->
+	<script src="/js/bootstrap.min.js"></script>
+	<!-- https://getbootstrap.com/ -->
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#fileImg").change(function() {
+				readURL(this);
+			});
+		});
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+					$('#thumbnail').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]); // convert to base64 string
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		function clearSearch() {
+			window.location = "[[@{/listProduct}]]";
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Thực đơn - Coffee Blend</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/open-iconic-bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+
+    <link rel="stylesheet" th:href="@{/css/aos.css}">
+
+    <link rel="stylesheet" th:href="@{/css/ionicons.min.css}">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap-datepicker.css}">
+    <link rel="stylesheet" th:href="@{/css/jquery.timepicker.css}">
+
+
+    <link rel="stylesheet" th:href="@{/css/flaticon.css}">
+    <link rel="stylesheet" th:href="@{/css/icomoon.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/search.css}">
+
+</head>
+<body>
+<!--Header-->
+<thblock th:include ="header" > </thblock>
+
+<!--Content-->
+<section class="home-slider owl-carousel">
+
+    <div class="slider-item" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+
+                <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-3 mt-5 bread">Thực đơn</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a th:href="@{/}">Trang chủ</a></span>
+                        <span>Thực đơn</span></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+	<th:block th:if="${menuDisplay == null}">
+	<h1> NULL BLOCK </h1>
+	 </th:block>
+	 
+	<th:block th:if="${menuDisplay != null }"> 
+		<form method ="post"  th:object="${menuDisplay}" th:action="@{/menu}">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-6 mb-5 pb-3">
+	                <h3 class="mb-5 heading-pricing ftco-animate">Bán chạy nhất</h3>
+	                
+	                <div class="pricing-entry d-flex ftco-animate" th:each="product: ${bestSeller}">
+	                <a th:href="@{/info/{id}(id = ${product.productID})}">
+	                    	<img style="vertical-align: middle; border-style: none; width: 80px;  height:80px; margin: 0 auto; border-radius: 50%" th:src="${product.img}" >
+	                    
+	                    <div class="desc pl-3">
+	                        <div class="d-flex text align-items-center">
+	                            <h3><span th:text="${product.productName}"  method="get"></span></h3>
+	                            <span class="price" th:text="${product.price}"></span>
+	                        </div>
+	                        <div class="d-block">
+	                            <p th:text="${product.description}"></p>
+	                        </div>
+	                    </div>
+	                </div>
+	                </a>
+	              </div> 
+	              <div class="col-md-6 mb-5 pb-3">
+	                <h3 class="mb-5 heading-pricing ftco-animate">Nổi bật</h3>
+	                <div class="pricing-entry d-flex ftco-animate" th:each="product: ${menuDisplay}">
+	                	<a th:href="@{/info/{id}(id = ${product.productID})}">
+	                    <img style="vertical-align: middle; border-style: none; width: 80px;  height:80px; margin: 0 auto; border-radius: 50%" th:src="${product.img}" >
+	                    </img>
+	                    <div class="desc pl-3">
+	                        <div class="d-flex text align-items-center">
+	                            <h3><span th:text="${product.productName}" th:href="@{/info/{id}(id = ${product.productID})}" ></span></h3>
+	                            <span class="price" th:text="${product.price}"></span>
+	                        </div>
+	                        <div class="d-block">
+	                            <p th:text="${product.description}"></p>
+	                        </div>
+	                    </div>
+	                    </a>
+	                </div>
+	                </div>
+	                </div>
+	           </div>
+	             
+	    </form>
+	   </th:block> 
+	</section>
+	
+	<section class="ftco-menu mb-5 pb-5">
+	    <div class="container">
+	        <div class="row justify-content-center mb-5">
+	            <div class="col-md-7 heading-section text-center ftco-animate">
+	                <span class="subheading">Khám phá</span><br>
+	                <h2 class="mb-4">Sản phẩm của chúng tôi</h2>
+	            </div>
+	        </div>
+	        <div class="row d-md-flex">
+	            <div class="col-lg-12 ftco-animate p-md-5">
+	                <div class="row">
+	                    <div class="col-md-12 nav-link-wrap mb-5">
+	                        <div class="nav ftco-animate nav-pills justify-content-center" id="v-pills-tab" role="tablist"
+	                             aria-orientation="vertical">
+	                            <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1"
+	                               role="tab" aria-controls="v-pills-1" aria-selected="true">CÀ PHÊ MÁY</a>
+	
+	                            <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
+	                               aria-controls="v-pills-2" aria-selected="false">TRÀ</a>
+	
+	                            <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab"
+	                               aria-controls="v-pills-3" aria-selected="false">SMOOTHIES</a>
+	
+	                            <a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab"
+	                               aria-controls="v-pills-3" aria-selected="false">TRÀ SỮA</a>
+	
+	                            <a class="nav-link" id="v-pills-5-tab" data-toggle="pill" href="#v-pills-5" role="tab"
+	                               aria-controls="v-pills-3" aria-selected="false">SNACK</a>
+	                        </div>
+	                    </div>
+	                    <div class="col-md-12 d-flex align-items-center">
+	
+	                        <div class="tab-content ftco-animate" id="v-pills-tabContent">
+	
+	                            <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
+	                                 aria-labelledby="v-pills-1-tab">
+	                                <div class="row">
+	                                
+	                                    <div class="col-md-4 text-center" th:each="coffee: ${discoverCoffee}">
+	                                        <div class="menu-wrap">
+	                                            <a th:href="@{/info/{id}(id = ${coffee.productID})}">
+	                                               
+	                                               <img style="vertical-align: middle; border-style: none; width: 270px;  height:308px; margin: 0 auto;"  th:src="${coffee.img}" ></img>
+	                                               
+	                                               </a>
+	                                            <div class="text">
+	                                                <h3><a th:text="${coffee.productName}"></a></h3>
+	                                                <p th:text="${coffee.description}"></p>
+	                                                <p class="price" th:text="${coffee.price}"><span></span></p>
+	                                                <p><a th:href="|/coffeeblend/addToCart?code=${coffee.productID}|" class="btn btn-primary btn-outline-primary">Thêm vào giỏ
+	                                                    hàng</a></p>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+
+	                            <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+	                                <div class="row">
+	                                
+	                                    <div class="col-md-4 text-center" th:each="tea: ${discoverTea}">
+	                                        <div class="menu-wrap">
+	                                            <a th:href="@{/info/{id}(id = ${tea.productID})}">
+	                                               <img style="vertical-align: middle; border-style: none; width: 308px;  height:270px; margin: 0 auto;"  th:src="${tea.img}" ></img>
+	                                            	
+	                                            </a>
+	                                            <div class="text">
+	                                                <h3><a href="#" th:text="${tea.productName}">Cold Brew cam vàng</a></h3>
+	                                                <p th:text="${tea.description}">Far far away, behind the word mountains, far from the countries
+	                                                    Vokalia and Consonantia.</p>
+	                                                <p class="price" th:text="${tea.price}"><span>$2.90</span></p>
+	                                                <p><a th:href="|/coffeeblend/addToCart?code=${tea.productID}|" class="btn btn-primary btn-outline-primary">Thêm vào giỏ
+	                                                    hàng</a></p>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	
+	                            <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
+	                                <div class="row">
+	                                
+	                                    <div class="col-md-4 text-center" th:each="smoothies: ${discoverSmoothies}">
+	                                        <div class="menu-wrap">
+	                                            <a th:href="@{/info/{id}(id = ${smoothies.productID})}" >
+	                                               <img style="vertical-align: middle; border-style: none; width: 308px;  height:270px; margin: 0 auto;"  th:src="${smoothies.img}" ></img>
+	                                            </a>
+	                                            <div class="text">
+	                                                <h3 th:text="${smoothies.productName}"> <a href="#">Matcha đá xay</a></h3>
+	                                                <p th:text="${smoothies.description}">Far far away, behind the word mountains, far from the countries
+	                                                    Vokalia and Consonantia.</p>
+	                                                <p class="price" th:text="${smoothies.price}"><span>$2.90</span></p>
+	                                                <p><a th:href="|/coffeeblend/addToCart?code=${smoothies.productID}|" class="btn btn-primary btn-outline-primary">Thêm vào giỏ
+	                                                    hàng</a></p>
+	                                            </div>
+	                                           
+	                                         </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	
+	                            <div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
+	                                <div class="row">
+	                                
+	                                    <div class="col-md-4 text-center" th:each="milktea :${discoverMilktea}">
+	                                        <div class="menu-wrap">
+	                                            <a th:href="@{/info/{id}(id = ${milktea.productID})}">	                                       
+	                                               <img style="vertical-align: middle; border-style: none; width: 308px;  height:270px; margin: 0 auto;"  th:src="${milktea.img}" ></img>
+	                                            </a>
+	                                            <div class="text">
+	                                                <h3 th:text="${milktea.productName}"><a href="#">Chanh sả đá xay</a></h3>
+	                                                <p th:text="${milktea.description}">Far far away, behind the word mountains, far from the countries
+	                                                    Vokalia and Consonantia.</p>
+	                                                <p class="price" th:text="${milktea.price}"><span>$2.90</span></p>
+	                                                <p><a th:href="|/coffeeblend/addToCart?code=${milktea.productID}|" class="btn btn-primary btn-outline-primary">Thêm vào giỏ
+	                                                    hàng</a></p>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	
+	                            <div class="tab-pane fade" id="v-pills-5" role="tabpanel" aria-labelledby="v-pills-5-tab">
+	                                <div class="row">
+	                                
+	                                    <div class="col-md-4 text-center" th:each="snack :${discoverSnack}">
+	                                        <div class="menu-wrap">
+	                                            <a th:href="@{/info/{id}(id = ${snack.productID})}" >	                                             
+	                                              <img style="vertical-align: middle; border-style: none; width: 308px;  height:270px; margin: 0 auto;"  th:src="${snack.img}" ></img>
+	                                            </a>
+	                                            <div class="text">
+	                                                <h3 th:text="${snack.productName}"><a href="#">Trà cherry macchiato</a></h3>
+	                                                <p th:text="${snack.description}"> Far far away, behind the word mountains, far from the countries
+	                                                    Vokalia and Consonantia.</p>
+	                                                <p class="price" th:text="${snack.price}"><span>$2.90</span></p>
+	                                                <p><a th:href="|/coffeeblend/addToCart?code=${snack.productID}|" class="btn btn-primary btn-outline-primary">Thêm vào giỏ
+	                                                    hàng</a></p>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	
+</section>
+
+<!--Footer-->
+<thblock th:include = "footer"> </thblock>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/jquery-migrate-3.0.1.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script th:src="@{/js/jquery.waypoints.min.js}"></script>
+<script th:src="@{/js/jquery.stellar.min.js}"></script>
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/aos.js}"></script>
+<script th:src="@{/js/jquery.animateNumber.min.js}"></script>
+<script th:src="@{/js/bootstrap-datepicker.js}"></script>
+<script th:src="@{/js/jquery.timepicker.min.js}"></script>
+<script th:src="@{/js/scrollax.min.js}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script th:src="@{/js/google-map.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+.search_and_icon {
+    margin-right: 20px;
+    margin-top: 5px;
+}
+.search_and_icon .align-left-search {
+    float: left;
+}
+
+.search {
+    width: 140px;
+}
+
+.icon-search {
+    margin-top: 20px;
+    color: #bdbdbd !important;
+}
+
+::placeholder {
+    color: #bdbdbd !important;
+    font-family: sans-serif;
+}

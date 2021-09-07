@@ -1,0 +1,38 @@
+#myModal-infoUser {
+    margin-top: 120px;
+}
+.form-control {
+    height: 45px !important;
+}
+
+.pwd {
+    width: 177%;
+}
+
+.iconn {
+    color: #c29a67 !important;
+}
+
+.icon-vpn_key {
+    float: right;
+}
+
+.icon-local_shipping {
+    float: left;
+}
+
+.changePW,
+.myOrder {
+    font-family: sans-serif !important;
+    color: #c29a67 !important;
+}
+
+.changePW:hover,
+.myOrder:hover {
+    cursor: pointer;
+    text-decoration: underline !important;
+}
+
+.modal-body button {
+    margin-top: 15px;
+}

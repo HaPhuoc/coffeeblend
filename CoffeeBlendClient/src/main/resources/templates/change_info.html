@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thông tin cá nhân - Coffee Blend</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,    400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/signin_signup.css">
+    <link rel="stylesheet" href="css/userStyle.css">
+    <link rel="stylesheet" href="css/search.css">
+
+</head>
+<body>
+
+<!--Header-->
+<thblock th:include ="header" th:if="${curCustomer==null}"> </thblock>
+<thblock th:include ="header_logged_in" th:if="${curCustomer!=null}"> </thblock>
+<!--Content-->
+<div id="myModal-infoUser">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">THÔNG TIN CÁ NHÂN</h4>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body">
+                <!--form-->
+                <form action="#" th:object="${currentCustomer}">
+                    <!--container-->
+                    <div class="container">
+                        <div class="form-group">
+                            <label for="yourName">Họ tên:</label>
+                            <input type="text" class="form-control" id="yourName" th:utext="${currentCustomer.name}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" th:utext="${currentCustomer.email}">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại:</label>
+                            <input type="tel" name="phone" class="form-control" id="phone" maxlength="11"
+                                   th:utext="${currentCustomer.phone}">
+                        </div>
+<!--                        <div class="form-group">-->
+<!--                            <label for="address">Địa chỉ:</label>-->
+<!--                            <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ">-->
+<!--                        </div>-->
+                        <div class="form-group">
+                            <label for="password">Mật khẩu:
+                                <input type="password" class="form-control pwd" id="password" placeholder="*************"
+                                       disabled>
+                            </label>
+                        </div>
+                        <!--                        <div class="form-group">-->
+                        <!--                            <label for="password">Nhập lại mật khẩu:-->
+                        <!--                                <input type="password" class="form-control pwd" id="password_confirm">-->
+                        <!--                            </label>-->
+                        <!--                        </div>-->
+                        <div class="form-group">
+                            <div class="icon-local_shipping iconn"><a th:href="@{/cart}" class="myOrder"> Đơn hàng của
+                                tôi </a></div>
+                            <div class="icon-vpn_key iconn"><a href="change-password.html" class="changePW"> Thay
+                                đổi mật khẩu </a></div>
+                        </div>
+                        <input type="submit" class="btn btn-success w-100" value= "Thay đổi" style="margin-top: 20px; font-family: sans-serif !important;">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+<thblock th:include = "footer"> </thblock>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.timepicker.min.js"></script>
+<script src="js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="js/google-map.js"></script>
+<script src="js/main.js"></script>
+<script src="js/user.js"></script>
+
+</body>
+</html>

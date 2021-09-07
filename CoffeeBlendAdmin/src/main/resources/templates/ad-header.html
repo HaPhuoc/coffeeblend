@@ -1,0 +1,100 @@
+<header>
+	<nav class="navbar navbar-expand-xl">
+        <div class="container h-100">
+            <a class="navbar-brand" th:href="@{/}">
+                <h1 class="tm-site-title mb-0">Coffee Blend</h1>
+            </a>
+            <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars tm-nav-icon"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto h-100">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Trang Chủ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/listProductType}">
+                            <i class="fas fa-luggage-cart"></i>
+                            Loại Sản Phẩm
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/listProduct}">
+                            <i class="fas fa-shopping-cart"></i>
+                            Sản Phẩm
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/orderList}">
+                            <i class="fas fa-shipping-fast"></i>
+                            Đơn Hàng
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="far fa-user"></i>
+                            <span>
+                                Người Dùng <i class="fas fa-angle-down"></i>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" th:href="@{/listStaff}">Nhân Viên</a>
+                            <a class="dropdown-item" th:href="@{/customerList}">Shipper</a>
+                        </div>
+                    </li>
+
+                    <!--                    <li class="nav-item">-->
+                    <!--                        <a class="nav-link" href="customer-list.html">-->
+                    <!--                            <i class="far fa-user"></i>-->
+                    <!--                            KhÃƒÂ¡ch hÃƒÂ ng-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li class="nav-item">-->
+                    <!--                        <a class="nav-link" href="staff-list.html">-->
+                    <!--                            <i class="far fa-user"></i>-->
+                    <!--                            NhÃƒÂ¢n viÃƒÂªn-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link d-block" th:href="@{/logout}">
+                            <span sec:authentication ="name"></span><b> Đăng Xuất</b>
+                            <div sec:authentication="principal.authorities"></div>
+                            <!--                                Ã„ï¿½Ã„Æ’ng xuÃ¡ÂºÂ¥t-->
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                	<li class="nav-item">
+                	</li>
+                	<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <div class="tm-gray-circle">
+									<img src="images/notification-01.jpg" alt="Avatar Image"
+										class="rounded-circle">
+								</div>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Thông Tin Cá Nhân</a>
+                            <a class="dropdown-item" href="#">Chỉnh Sửa</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+</header>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cửa hàng - Coffee Blend</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+
+</head>
+<body>
+<!--Header-->
+<thblock th:include ="header" th:if="${curCustomer==null}"> </thblock>
+<thblock th:include ="header_logged_in" th:if="${curCustomer!=null}"> </thblock>
+
+<!--Content-->
+<section class="home-slider owl-carousel">
+
+    <div class="slider-item" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+
+                <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-3 mt-5 bread">Cửa hàng</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span>
+                        <span>Cửa hàng</span></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-menu mb-5 pb-5">
+    <div class="container">
+        <div class="row d-md-flex">
+            <div class="col-lg-12 ftco-animate p-md-5">
+                <div class="row">
+                    <div class="col-md-12 nav-link-wrap mb-5">
+                        <div class="nav ftco-animate nav-pills justify-content-center" id="v-pills-tab" role="tablist"
+                             aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-0-tab" data-toggle="pill" href="#v-pills-0"
+                               role="tab" aria-controls="v-pills-1" aria-selected="true">CÀ PHÊ MÁY</a>
+
+                            <a class="nav-link" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab"
+                               aria-controls="v-pills-2" aria-selected="false">COLD BREW</a>
+
+                            <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
+                               aria-controls="v-pills-3" aria-selected="false">MATCHA - SOCOLA</a>
+
+                            <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab"
+                               aria-controls="v-pills-3" aria-selected="false">THỨC UỐNG TRÁI CÂY</a>
+
+                            <a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab"
+                               aria-controls="v-pills-3" aria-selected="false">TRÀ SỮA MACCHIATO</a>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex align-items-center">
+
+                        <div class="tab-content ftco-animate" id="v-pills-tabContent">
+
+                            <div class="tab-pane fade show active" id="v-pills-0" role="tabpanel"
+                                 aria-labelledby="v-pills-0-tab">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="menu-entry">
+                                            <a href="#" class="img"></a>
+                                            <div class="text text-center pt-4">
+                                                <h3><a href="product-details.html">Americano</a></h3>
+                                                <p>A small river named Duden flows by their place and supplies</p>
+                                                <p class="price"><span>$5.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="menu-entry">
+                                            <a href="#" class="img"
+                                               style="background-image: url(images/ca_phe/cappuccino.jpg);"></a>
+                                            <div class="text text-center pt-4">
+                                                <h3><a href="product-details.html">Cappuccino</a></h3>
+                                                <p>A small river named Duden flows by their place and supplies</p>
+                                                <p class="price"><span>$5.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="menu-entry">
+                                            <a href="#" class="img"
+                                               style="background-image: url(images/ca_phe/caramel_macchiato.jpg);"></a>
+                                            <div class="text text-center pt-4">
+                                                <h3><a href="product-details.html">Caramel Macchiato</a></h3>
+                                                <p>A small river named Duden flows by their place and supplies</p>
+                                                <p class="price"><span>$5.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="menu-entry">
+                                            <a href="#" class="img"
+                                               style="background-image: url(images/ca_phe/espresso.jpg);"></a>
+                                            <div class="text text-center pt-4">
+                                                <h3><a href="product-details.html">Espresso</a></h3>
+                                                <p>A small river named Duden flows by their place and supplies</p>
+                                                <p class="price"><span>$5.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="menu-entry">
+                                            <a href="#" class="img"
+                                               style="background-image: url(images/ca_phe/espresso_tonic.jpg);"></a>
+                                            <div class="text text-center pt-4">
+                                                <h3><a href="product-details.html">Espresso Tonic</a></h3>
+                                                <p>A small river named Duden flows by their place and supplies</p>
+                                                <p class="price"><span>$5.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="menu-entry">
+                                            <a href="#" class="img"
+                                               style="background-image: url(images/ca_phe/latte.jpg);"></a>
+                                            <div class="text text-center pt-4">
+                                                <h3><a href="product-details.html">Latte</a></h3>
+                                                <p>A small river named Duden flows by their place and supplies</p>
+                                                <p class="price"><span>$5.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="menu-entry">
+                                            <a href="#" class="img"
+                                               style="background-image: url(images/ca_phe/mocha.jpg);"></a>
+                                            <div class="text text-center pt-4">
+                                                <h3><a href="product-details.html">Mocha</a></h3>
+                                                <p>A small river named Duden flows by their place and supplies</p>
+                                                <p class="price"><span>$5.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="menu-entry">
+                                            <a href="#" class="img"
+                                               style="background-image: url(images/ca_phe/yuzu_espresso_tonic.jpg);"></a>
+                                            <div class="text text-center pt-4">
+                                                <h3><a href="product-details.html">Yuzu espresso tonic</a></h3>
+                                                <p>A small river named Duden flows by their place and supplies</p>
+                                                <p class="price"><span>$5.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
+                                <div class="row">
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/cold_brew/coldbrew_truyenthong.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Cold brew truyền thống</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/cold_brew/coldbrew_camvang.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Cold brew cam vàng</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/cold_brew/coldbrew_phucbontu.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Cold brew phúc bồn tử</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/cold_brew/coldbrew_suamacca.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Cold brew sữa mắc ca</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/cold_brew/coldbrew_suatuoi.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Cold brew sữa tươi</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/cold_brew/coldbrew_suatuoimacchiato.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Cold brew sữa tươi macchiato</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+                                <div class="row">
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/matcha_socola/matcha_daxay.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Matcha đá xay</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/matcha_socola/matcha_latte.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Matcha latte</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/matcha_socola/socola_da.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Sô-cô-la đá</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/matcha_socola/socola_daxay.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Sô-cô-la đá xay</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
+                                <div class="row">
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/thuc_uong_trai_cay/chanh_sa_daxay.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Chanh sả đá xay</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/thuc_uong_trai_cay/pbt_cam_daxay.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Phúc bồn tử cam đá xay</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/thuc_uong_trai_cay/sinhto_camxoai.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Sinh tố cam xoài</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/thuc_uong_trai_cay/sinhto_vietquat.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Sinh tố việt quất</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
+                                <div class="row">
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/tra_sua/tra_sua_macchiato/cherry_macchiato.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Trà cherry macchiato</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/tra_sua/tra_sua_macchiato/matcha_macchiato.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Trà matcha macchiato</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/tra_sua/tra_sua_macchiato/tra_den_macchiato.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Trà đen macchiato</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/tra_sua/tra_sua_macchiato/tra_lai_macchiato.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Trà lài macchiato</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/tra_sua/tra_sua_macchiato/tra_xoai_macchiato.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Trà xoài macchiato</a></h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="menu-wrap">
+                                            <a href="#" class="menu-img img mb-4"
+                                               style="background-image: url(images/tra_sua/tra_sua_macchiato/trasua_macca.jpg);"></a>
+                                            <div class="text">
+                                                <h3><a href="product-details.html">Trà sữa mắc ca trân châu trắng</a>
+                                                </h3>
+                                                <p>Far far away, behind the word mountains, far from the countries
+                                                    Vokalia and Consonantia.</p>
+                                                <p class="price"><span>$2.90</span></p>
+                                                <p><a href="cart.html" class="btn btn-primary btn-outline-primary">Thêm
+                                                    vào giỏ hàng</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Footer-->
+<thblock th:include = "footer"> </thblock>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.timepicker.min.js"></script>
+<script src="js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="js/google-map.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

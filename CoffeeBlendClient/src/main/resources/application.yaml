@@ -1,0 +1,42 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /coffeeblend
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/coffeeblend
+    username: approot
+    password: '123456'
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 298026538902-h56gmjr8g922ilf10plgo8l315rhgqde.apps.googleusercontent.com
+            client-secret: cpPiRC9MSAkuq6eDW6O98bHD
+            scope:
+            - email
+            - profile
+          facebook:
+            client-id: 807094426506026
+            client-secret: 72c21d4d75e0de27c4e76a362a6ffc52
+            scope:
+            - email
+            - public_profile
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ldhung311@gmail.com
+    password: tzyqapxeyvqdzzyu
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            
+            
+            
+            
+            

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách loại sản phẩm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+    />
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="css/fontawesome.min.css"/>
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link rel="stylesheet" href="css/table-scroll.css">
+    <!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+</head>
+<body id="reportsPage">
+
+<!--Header-->
+<thblock th:include="ad-header"> </thblock>
+<!--Content-->
+<div class="container mt-5">
+    <!--    <div class="row tm-content-row">-->
+    <!--        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">-->
+    <div class="tm-bg-primary-dark tm-block tm-block-products">
+        <h2 class="tm-block-title">Danh sách loại sản phẩm</h2>
+        <div class="tm-product-table-container">
+            <table class="table table-hover tm-table-small tm-product-table" style="border: 1px solid #3a5061">
+                <thead>
+                <tr>
+                    
+                    <th scope="col">ID</th>
+                    <th scope="col">TÊN LOẠI SP</th>
+                    <th scope="col" sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">XOÁ BỎ</th>
+                    <th scope="col" sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">CHỈNH SỬA</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="type : ${listType}">
+                  
+                    <td class="tm-product-name" th:text="${type.type_id}">id</td>
+                	<td class="tm-product-name" th:text="${type.type_name}">name</td>
+                    <td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
+                        <a th:href="@{/deleteProductType/{type_id}(type_id=${type.type_id})}" class="tm-product-delete-link">
+                            <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                        </a>
+                    </td>
+                    <td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
+                        <a th:href="@{/editProductType/{type_id}(type_id=${type.type_id})}" class="tm-product-edit-link">
+                          <i class="fas fa-edit tm-product-delete-icon"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- table container -->
+        <div sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">
+        <a
+                th:href="@{/addProductType}"
+                class="btn btn-primary btn-block text-uppercase mb-3">Thêm loại sản phẩm</a>
+                </div>
+    </div>
+</div>
+<!--Footer-->
+<footer class="tm-footer row tm-mt-small">
+    <div class="col-12 font-weight-light">
+        <p class="text-center text-white mb-0 px-4 small">
+            <!--                Copyright &copy; <b>2020</b> All rights reserved.-->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+            Coffee Blend. All rights reserved.
+            <!--                Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>-->
+        </p>
+    </div>
+</footer>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<!-- https://jquery.com/download/ -->
+<script src="js/bootstrap.min.js"></script>
+<!-- https://getbootstrap.com/ -->
+<script>
+    $(function () {
+        $(".tm-product-name").on("click", function () {
+            window.location.href = "product-type-edit.html";
+        });
+    });
+</script>
+</body>
+</html>

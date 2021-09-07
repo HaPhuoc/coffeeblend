@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Đăng nhập - Coffee Blend</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/signin_signup.css">
+    <link rel="stylesheet" href="css/userStyle.css">
+    <link rel="stylesheet" href="css/search.css">
+
+    <style>
+        .form-control {
+            height: 45px !important;
+        }
+        .icon_btn {
+            margin-bottom: 30px !important;
+        }
+    </style>
+
+
+</head>
+<body>
+<!--Header-->
+<thblock th:include ="header" th:if="${curCustomer==null}"> </thblock>
+<thblock th:include ="header_logged_in" th:if="${curCustomer!=null}"> </thblock>
+
+<!--Content-->
+<!-- The Modal Sign in-->
+<div id="myModal-signIn" style="margin-top: 120px" class="col-md-12 pr-md-8">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Sign in Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">ĐĂNG NHẬP</h4>
+            </div>
+
+            <!-- Sign in body -->
+            <div class="modal-body">
+                <!--form-->
+                <form th:action="@{/login}"  th:object = "${AccountDetail}" method = "post">
+                    <!--container-->
+                    <div class="container">
+                    <h6 style = "color:red;"> Email hoặc mật khẩu không đúng</h6> 
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" name="email" th:field="*{email}" placeholder = "Type your email...">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mật khẩu:</label>
+                            <input type="password" class="form-control" name="password" th:field="*{password}" placeholder = "Type your password...">
+                        </div>
+                        <button type="submit" class="btn btn-success w-100"><i
+                                class="icon-sign-in icon_btn"></i>&nbsp; Đăng
+                            nhập
+                        </button>
+                        <br>
+                       
+                        <button  type="submit" class="btn btn-success w-100" th:href="@{/oauth2/authorization/facebook}" 
+                        		style="background: #4469b0"><i
+                                class="icon-facebook icon_btn"></i>&nbsp; Đăng
+                            nhập bằng Facebook
+                        </button>
+                        <br>
+                        <button type="submit" class="btn btn-success w-100" th:href="@{/oauth2/authorization/google}" 
+                        		style="background: #e2433a">
+                        		<i class="icon-google icon_btn"></i>&nbsp; Đăng
+                            nhập bằng Google 
+                         </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Sign in footer -->
+            <div class="modal-footer">
+                <h6 class="w-100">Quên mật khẩu?</h6>
+                <a class="btn btn-danger w-100" th:href="@{/register}"><i class="icon-user-plus"></i>&nbsp; Đăng ký
+                    ngay</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Footer-->
+<thblock th:include = "footer"> </thblock>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.timepicker.min.js"></script>
+<script src="js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="js/google-map.js"></script>
+<script src="js/main.js"></script>
+<script src="js/user.js"></script>
+
+
+</body>
+</html>

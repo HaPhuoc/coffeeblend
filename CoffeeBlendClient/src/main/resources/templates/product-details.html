@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chi tiết sản phẩm - Coffee Blend</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
+    <link rel="stylesheet"  th:href="@{/css/open-iconic-bootstrap.min.css}">
+    <link rel="stylesheet"   th:href="@{/css/animate.css}">
+
+    <link rel="stylesheet"   th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet"   th:href="@{/css/owl.theme.default.min.css}">
+    <link rel="stylesheet"   th:href="@{/css/magnific-popup.css}">
+
+    <link rel="stylesheet"   th:href="@{/css/aos.css}">
+
+    <link rel="stylesheet"   th:href="@{/css/ionicons.min.css}">
+
+    <link rel="stylesheet"   th:href="@{/css/bootstrap-datepicker.css}">
+    <link rel="stylesheet"   th:href="@{/css/jquery.timepicker.css}">
+
+
+    <link rel="stylesheet"   th:href="@{/css/flaticon.css}">
+    <link rel="stylesheet"   th:href="@{/css/icomoon.css}">
+    <link rel="stylesheet"   th:href="@{/css/style.css}">
+    <link rel="stylesheet"   th:href="@{/css/search.css}">
+
+</head>
+<body>
+<!--Header-->
+<thblock th:include ="header" th:if="${curCustomer==null}"> </thblock>
+<thblock th:include ="header_logged_in" th:if="${curCustomer!=null}"> </thblock>
+
+<!--Content-->
+<section class="home-slider owl-carousel">
+    <div class="slider-item" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+
+                <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-3 mt-5 bread">Chi tiết sản phẩm</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span>
+                        <span>Chi tiết sản phẩm</span></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5 ftco-animate">
+                <a href="images/menu-2.jpg" class="image-popup"><img th:src="${product.img}"
+                                                                     class="img-fluid"
+                                                                     alt="Colorlib Template"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate" th:object="${product}">
+                <h3 th:text="${product.productName}">Drink</h3>
+                <p class="price" th:text="${product.price}" ><span>$4.90</span></p>
+                <p th:text="${product.description}">This is a description</p>
+                <div class="row mt-4">
+                    
+                    <div class="w-100"></div>
+                    <div class="input-group col-md-6 d-flex mb-3">
+	             	<span class="input-group-btn mr-2">
+	                	<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
+	                   <i class="icon-minus"></i>
+	                	</button>
+	            		</span>
+	            		
+                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
+                               min="1" max="100">
+                        <span class="input-group-btn ml-2">
+                        
+	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+	                     <i class="icon-plus"></i>
+	                 </button> 
+	                  
+	             	</span>
+                    </div>
+                </div>
+                <p><a th:href="|/coffeeblend/addToCart?code=${product.productID}|" th class="btn btn-primary py-3 px-5" >Thêm vào giỏ hàng </a></p>
+           	
+            </div>
+        </div>
+    </div>
+   
+</section>
+
+<!--<section class="ftco-section">-->
+<!--    <div class="container">-->
+<!--        <div class="row justify-content-center mb-5 pb-3">-->
+<!--            <div class="col-md-7 heading-section ftco-animate text-center">-->
+<!--                <span class="subheading">Khám phá</span><br>-->
+<!--                <h2 class="mb-4">Sản phẩm liên quan</h2>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-3">-->
+<!--                <div class="menu-entry">-->
+<!--                    <a href="#" class="img" style="background-image: url(images/ca_phe/cappuccino.jpg);"></a>-->
+<!--                    <div class="text text-center pt-4">-->
+<!--                        <h3><a href="#">Cappuccino</a></h3>-->
+<!--                        <p>A small river named Duden flows by their place and supplies</p>-->
+<!--                        <p class="price"><span>$5.90</span></p>-->
+<!--                        <p><a href="#" class="btn btn-primary btn-outline-primary">Thêm vào giỏ hàng</a></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3">-->
+<!--                <div class="menu-entry">-->
+<!--                    <a href="#" class="img" style="background-image: url(images/ca_phe/espresso.jpg);"></a>-->
+<!--                    <div class="text text-center pt-4">-->
+<!--                        <h3><a href="#">Espresso</a></h3>-->
+<!--                        <p>A small river named Duden flows by their place and supplies</p>-->
+<!--                        <p class="price"><span>$5.90</span></p>-->
+<!--                        <p><a href="#" class="btn btn-primary btn-outline-primary">Thêm vào giỏ hàng</a></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3">-->
+<!--                <div class="menu-entry">-->
+<!--                    <a href="#" class="img" style="background-image: url(images/ca_phe/latte.jpg);"></a>-->
+<!--                    <div class="text text-center pt-4">-->
+<!--                        <h3><a href="#">Latte</a></h3>-->
+<!--                        <p>A small river named Duden flows by their place and supplies</p>-->
+<!--                        <p class="price"><span>$5.90</span></p>-->
+<!--                        <p><a href="#" class="btn btn-primary btn-outline-primary">Thêm vào giỏ hàng</a></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3">-->
+<!--                <div class="menu-entry">-->
+<!--                    <a href="#" class="img" style="background-image: url(images/ca_phe/mocha.jpg);"></a>-->
+<!--                    <div class="text text-center pt-4">-->
+<!--                        <h3><a href="#">Mocha</a></h3>-->
+<!--                        <p>A small river named Duden flows by their place and supplies</p>-->
+<!--                        <p class="price"><span>$5.90</span></p>-->
+<!--                        <p><a href="#" class="btn btn-primary btn-outline-primary">Thêm vào giỏ hàng</a></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--Footer-->
+<thblock th:include = "footer"> </thblock>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/jquery-migrate-3.0.1.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script th:src="@{/js/jquery.waypoints.min.js}"></script>
+<script th:src="@{/js/jquery.stellar.min.js}"></script>
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/aos.js}"></script>
+<script th:src="@{/js/jquery.animateNumber.min.js}"></script>
+<script th:src="@{/js/bootstrap-datepicker.js}"></script>
+<script th:src="@{/js/jquery.timepicker.min.js}"></script>
+<script th:src="@{/js/scrollax.min.js}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script th:src="@{/js/google-map.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+<script>
+    $(document).ready(function () {
+
+        var quantitiy = 0;
+        $('.quantity-right-plus').click(function (e) {
+
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+
+            // If is not undefined
+
+            $('#quantity').val(quantity + 1);
+
+
+            // Increment
+
+        });
+
+        $('.quantity-left-minus').click(function (e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+
+            // If is not undefined
+
+            // Increment
+            if (quantity > 0) {
+                $('#quantity').val(quantity - 1);
+            }
+        });
+
+    });
+</script>
+
+
+</body>
+</html>

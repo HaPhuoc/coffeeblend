@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Danh sách đơn hàng</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
+<!-- https://fonts.google.com/specimen/Roboto -->
+<link rel="stylesheet" href="css/fontawesome.min.css" />
+<!-- https://fontawesome.com/ -->
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<!-- https://getbootstrap.com/ -->
+<link rel="stylesheet" href="css/admin-style.css">
+<link rel="stylesheet" href="css/table-scroll.css">
+<!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+</head>
+<body>
+
+	<!--Header-->
+	<thblock th:include="ad-header"> </thblock>
+	<!--Content-->
+	<div class="container mt-5">
+		<!--    <div class="col-12 tm-block-col">-->
+		<!--        <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">-->
+		<h2 class="tm-block-title">Danh sách đơn hàng</h2>
+		<table class="table" style="border: 1px solid #3a5061">
+			<thead>
+				<tr>
+					<th scope="col">MÃ ĐH</th>
+					<th scope="col">NGÀY MUA</th>
+					<th scope="col">ĐỊA CHỈ</th>
+					<th scope="col">NGƯỜI NHẬN</th>
+					<th scope="col">ĐIỆN THOẠI</th>
+					<th scope="col">TỔNG TIỀN</th>
+					<th scope="col">NGÀY SỬA</th>
+					<th scope="col">TRẠNG THÁI</th>
+					<th scope="col" sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">CHỈNH SỬA</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each = "invoice : ${listInvoice}">
+					<th scope="row"><b th:text=${invoice.id}></b></th>
+					<td><b th:text = ${invoice.day_created}></b></td>
+					<td><b th:text = ${invoice.customer_address}></b></td>
+					<td><b th:text = ${invoice.customer_name}></b></td>
+					<td><b th:text = ${invoice.customer_phone}></b></td>
+					<td><b th:text = ${invoice.total_cart_price}></b></td>
+					<td><b th:text = ${invoice.day_updated}></b></td>
+					<td><b th:text = ${invoice.invoice_status}></b></td>
+					<td sec:authorize="hasAnyAuthority('ADMIN','EDITOR')"><a th:href="@{/editInvoice/{id}(id=${invoice.id})}" class="tm-product-edit-link"><i
+							class="fas fa-edit tm-product-delete-icon"></i></a></td>
+				</tr>
+			
+			</tbody>
+		</table>
+		<!--        </div>-->
+		<!--    </div>-->
+	</div>
+	<!--Footer-->
+	<footer class="tm-footer row tm-mt-small">
+		<div class="col-12 font-weight-light">
+			<p class="text-center text-white mb-0 px-4 small">
+				<!--                Copyright &copy; <b>2020</b> All rights reserved.-->
+				Copyright &copy;
+				<script>
+					document.write(new Date().getFullYear());
+				</script>
+				Coffee Blend. All rights reserved.
+				<!--                Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>-->
+			</p>
+		</div>
+	</footer>
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<!-- https://jquery.com/download/ -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- https://getbootstrap.com/ -->
+	<script>
+		$(function() {
+			$(".tm-product-name").on("click", function() {
+				window.location.href = "order-edit.html";
+			});
+		});
+	</script>
+</body>
+</html>
